@@ -1,0 +1,700 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap');
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    width:100%;
+    height:100vh;
+
+    overflow:hidden;
+
+    background:#050505;
+
+    color:white;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+
+
+/* =====================
+   START SCREEN
+===================== */
+
+
+.start-screen{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#050505;
+
+    z-index:100;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    transition:2s;
+
+}
+
+
+
+.start-content{
+
+    text-align:center;
+
+    animation:
+    fadeStart 3s ease;
+
+}
+
+
+
+.start-content p{
+
+    letter-spacing:8px;
+
+    color:#c7a86b;
+
+    font-size:14px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.start-content button{
+
+    background:none;
+
+    border:1px solid #c7a86b;
+
+    color:white;
+
+    padding:15px 50px;
+
+    font-size:15px;
+
+    letter-spacing:5px;
+
+    cursor:pointer;
+
+    transition:.5s;
+
+}
+
+
+
+.start-content button:hover{
+
+    background:#c7a86b;
+
+    color:black;
+
+}
+
+
+
+
+@keyframes fadeStart{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+
+
+/* =====================
+   BACKGROUND
+===================== */
+
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-2;
+
+
+    background:
+
+    radial-gradient(
+    circle at center,
+    #252016,
+    #050505 65%
+    );
+
+}
+
+
+
+.background::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+
+    background-image:
+
+    radial-gradient(
+    white 1px,
+    transparent 1px
+    );
+
+
+    background-size:60px 60px;
+
+
+    opacity:.15;
+
+
+    animation:
+
+    stars 30s linear infinite;
+
+}
+
+
+
+@keyframes stars{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(120px);
+
+}
+
+}
+
+
+
+
+
+/* =====================
+   SCENE SYSTEM
+===================== */
+
+
+.scene{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100vh;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    opacity:0;
+
+
+    pointer-events:none;
+
+
+    transform:scale(1.08);
+
+
+    transition:
+
+    opacity 2s ease,
+
+    transform 5s ease;
+
+
+}
+
+
+
+.scene.active{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+
+    transform:scale(1);
+
+}
+
+
+
+
+
+
+
+/* =====================
+   TEXT
+===================== */
+
+
+.content{
+
+    text-align:center;
+
+    animation:
+    appear 3s;
+
+}
+
+
+
+.date{
+
+    color:#c7a86b;
+
+    letter-spacing:7px;
+
+    font-size:14px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+h1{
+
+    font-family:
+    'Cormorant Garamond',
+    serif;
+
+
+    font-size:100px;
+
+    font-weight:600;
+
+}
+
+
+
+.content p:last-child{
+
+    margin-top:30px;
+
+    opacity:.7;
+
+}
+
+
+
+
+
+
+/* =====================
+   NAME
+===================== */
+
+
+.name{
+
+    color:#d7b878;
+
+    text-shadow:
+
+    0 0 30px rgba(215,184,120,.4);
+
+}
+
+
+
+
+
+
+
+/* =====================
+   PHOTO CINEMA
+===================== */
+
+
+.movie-photo{
+
+    width:100%;
+
+    height:100%;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+
+.photo-bg{
+
+    position:absolute;
+
+    inset:-50px;
+
+
+    background-size:cover;
+
+    background-position:center;
+
+
+    filter:
+
+    blur(35px)
+
+    brightness(.3);
+
+
+    transform:scale(1.2);
+
+}
+
+
+
+.movie-photo img{
+
+    position:relative;
+
+
+    width:430px;
+
+    height:600px;
+
+
+    object-fit:cover;
+
+
+    box-shadow:
+
+    0 50px 100px black;
+
+
+    animation:
+
+    cameraMove 10s infinite;
+
+}
+
+
+
+.caption{
+
+    position:absolute;
+
+    bottom:80px;
+
+    text-align:center;
+
+    width:100%;
+
+}
+
+
+
+.caption span{
+
+    color:#c7a86b;
+
+    letter-spacing:5px;
+
+    font-size:13px;
+
+}
+
+
+
+.caption h2{
+
+    font-family:
+    'Cormorant Garamond',
+    serif;
+
+
+    font-size:55px;
+
+    margin-top:15px;
+
+}
+
+
+
+.caption p{
+
+    opacity:.7;
+
+    margin-top:15px;
+
+}
+
+
+
+
+
+/* =====================
+   LETTER
+===================== */
+
+
+.letter{
+
+    width:700px;
+
+
+    padding:60px;
+
+
+    background:
+
+    rgba(255,255,255,.04);
+
+
+    border:
+
+    1px solid rgba(255,255,255,.15);
+
+
+    backdrop-filter:
+
+    blur(20px);
+
+}
+
+
+
+.letter h2{
+
+    font-family:
+    'Cormorant Garamond',
+    serif;
+
+
+    color:#d7b878;
+
+    font-size:60px;
+
+}
+
+
+
+.letter p{
+
+    margin-top:35px;
+
+    font-size:21px;
+
+    line-height:2;
+
+    white-space:pre-line;
+
+}
+
+
+
+
+
+
+/* =====================
+   ENDING
+===================== */
+
+
+.ending{
+
+    text-align:center;
+
+}
+
+
+
+.ending h1{
+
+    color:#d7b878;
+
+    font-size:120px;
+
+}
+
+
+
+.ending p{
+
+    margin-top:30px;
+
+    font-size:25px;
+
+    opacity:.8;
+
+}
+
+
+
+
+/* =====================
+   ANIMATION
+===================== */
+
+
+@keyframes appear{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+
+
+@keyframes cameraMove{
+
+50%{
+
+transform:scale(1.06);
+
+}
+
+}
+
+
+
+
+
+
+
+/* =====================
+   MOBILE
+===================== */
+
+
+@media(max-width:700px){
+
+
+h1{
+
+font-size:55px;
+
+}
+
+
+
+.name{
+
+font-size:70px;
+
+}
+
+
+
+.movie-photo img{
+
+width:280px;
+
+height:400px;
+
+}
+
+
+
+.caption h2{
+
+font-size:35px;
+
+}
+
+
+
+.letter{
+
+width:90%;
+
+padding:30px;
+
+}
+
+
+
+.letter h2{
+
+font-size:40px;
+
+}
+
+
+
+.letter p{
+
+font-size:17px;
+
+}
+
+
+
+.ending h1{
+
+font-size:70px;
+
+}
+
+
+}
